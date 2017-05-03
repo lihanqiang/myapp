@@ -1,0 +1,334 @@
+
+    <style>
+
+        .main{
+            width: 80%;
+            height: 500px;
+            margin: 0 auto;
+            color:#666;
+            padding-top: 200px;
+        }
+        #email,#password{
+            width: 75%;
+            height: 30px;
+        }
+        .head{
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+        #loginForm input {
+            margin: 10px  10px 10px 0;
+        }
+        #create{
+            border: 1px solid #3D5E37;
+            width: 20%;
+            height: 30px;
+            background: #3D5E37;
+            outline: none;
+            color: white;
+        }
+        .regBtn{
+            border: 1px solid #535353;
+            width: 10%;
+            height: 30px;
+            background: #535353;
+            outline: none;
+            color: white;
+        }
+        #create:hover{
+            cursor: pointer;
+            background: #38772E;
+            border: 1px solid #38772E;
+        }
+        .regBtn:hover{
+            cursor: pointer;
+            background: #1F774F;
+            border: 1px solid #1F774F;
+        }
+        .main_left{
+            float: left;
+            width: 40%;
+            /*outline: 1px solid red;*/
+        }
+        .main_right{
+            padding-left: 15%;
+            /*outline: 1px solid red;*/
+            width: 45%;
+            float: left;
+        }
+        .main_right ul li{
+            /*list-style: circle;*/
+            font-size: 0.8em;
+            color: #999;
+            padding-top: 5px;
+            padding-bottom: 8px;
+        }
+        .main_right .p1,.main_left .p1{
+            padding-bottom: 30px;
+        }
+        @media screen and (max-width: 1100px) {
+            #menu,.selectButtons{
+                display: none;
+            }
+            body{
+                padding-top: 1px;
+            }
+            .top_div{
+                line-height: 30px;
+                cursor: pointer;
+                text-align: center;
+                height: 30px;
+                width: 100%;
+                background: #999;
+            }
+            .logo_div{
+                text-align: center;
+                margin-top: 8px;
+                vertical-align: middle;
+                height: 50px;
+                background:#262626;
+            }
+            .menu_img,.search_img,.user_img,.market_img{
+                display: none;
+            }
+            .logo_div img{
+                cursor: pointer;
+            }
+            .menu_img,.search_img{
+                margin-top: 14px;
+                float: left;
+                display: block;
+            }
+            .menu_img {
+                margin-right: 10px;
+            }
+            .user_img,.market_img{
+                float: right;
+                display: block;
+            }
+            .market_img{
+                margin-top: 11px;
+                margin-right: 10px;
+            }
+            .user_img{
+                margin-top: 14px;
+            }
+            #regForm input{
+                width: 100%;
+            }
+            #regForm span{
+                padding-bottom: 10px;
+                padding-top: 10px;
+            }
+            .main{
+                height: 800px;
+            }
+            .first_line_logo{
+                display: none;
+            }
+
+
+            .foot{
+                height: 500px;
+            }
+            .foot .bottom .bottom_right ,.foot .bottom .bottom_left{
+                clear: both;
+                width: 100%;
+            }
+            .bottom_left input{
+                width: 100%;
+            }
+            .first_line_logo2{
+                display: inline-block;
+            }
+            .bottom_left img{
+                display: block;
+                cursor: pointer;
+                margin:  0 auto;
+            }
+            .bottom_left p{
+                text-align: center;
+            }
+            .bottom_container{
+                width: 100%;
+                height: 300px;
+                margin: 0 auto;
+            }
+            .foot .bottom .bottom_right{
+                clear: both;
+                height: 200px;
+                width: 100%;
+            }
+            body #main_right{
+                text-align: center;
+                padding-left: 0;
+            }
+
+            .foot .bottom_right{
+                background: #262626;
+                color: white;
+            }
+            .bottom_right div ul li{
+                text-align: center;
+            }
+            .bottom_right div .li1{
+                font-size:1em;
+                color: #999;
+                padding: 15px 0;
+            }
+            .main_left,.main_right{
+                clear: both;
+                width: 100%;
+            }
+            .main_left #loginForm input,.main_right input{
+                width: 100%;
+            }
+
+        }
+    </style>
+
+
+<div class="head">
+    <div class="first_line">
+        <div class="top_div">满299免邮</div>
+        <div id="menu">
+            <ul id="nav">
+                <li class="mainlevel" id="mainlevel_01"><a href="" ng-mouseover="move()" target="_blank">满299免邮</a>
+                    <ul id="sub_01">
+                        <li><a href="" target="_blank">购买男装</a></li>
+                        <li><a href="" target="_blank">购买女装</a></li>
+                        <li><a href="" target="_blank">查看详情</a></li>
+                    </ul>
+                </li>
+
+                <li class="mainlevel" id="mainlevel_02"><a href="" ng-mouseover="move()" target="_blank">ENGLISH</a>
+                    <ul id="sub_02">
+                    </ul>
+                </li>
+
+                <li class="mainlevel" id="mainlevel_03"><a href="" ng-mouseover="move()" target="_blank">登录</a>
+                    <ul id="sub_03">
+                        <!--<li><a href="" target="_blank">登录</a></li>-->
+                        <li><a href="" target="_blank">创建账户</a></li>
+                        <li><a href="" target="_blank">追踪我的订单</a></li>
+                    </ul>
+                </li>
+
+                <li class="mainlevel" id="mainlevel_04"><a href="" ng-mouseover="move()" target="_blank">购物袋</a>
+                    <ul id="sub_04">
+
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+
+    </div>
+
+    <div class="logo_div">
+        <img class="menu_img" src="../../../img/sites-abercrombie_cn-site_files/menu.png" alt=""/>
+        <img class="search_img" src="../../../img/sites-abercrombie_cn-site_files/search.png" alt=""/>
+        <img class="first_line_logo2" src="../../../img/Sites-abercrombie_cn-Site_files/logo2.png" alt=""/>
+        <img class="first_line_logo" src="../../../img/Sites-abercrombie_cn-Site_files/logo.png" alt=""/>
+        <img class="user_img" src="../../../img/Sites-abercrombie_cn-Site_files/user.png" alt=""/>
+        <img class="market_img" src="../../../img/Sites-abercrombie_cn-Site_files/market.png" alt=""/>
+    </div>
+
+    <div class="selectButtons">
+        <span>男装</span>
+        <span>女装</span>
+        <span>牛仔裤</span>
+        <span>LOOKBOOK</span>
+        <!--<div>-->
+            <!--<input type="text" placeholder="搜索产品"/><img src="../../../img/sites-abercrombie_cn-site_files/searchimg.png" alt=""/>-->
+        <!--</div>-->
+    </div>
+
+</div>
+<div class="main">
+    <div class="main_left">
+        <p class="p1">已注册的顾客</p>
+        <form id="loginForm" action="" name="loginForm">
+            <label for="email">电子邮件地址</label><br/><input id="email" ng-model="email" type="text"/><br/>
+            <label for="password">密码</label><br/><input id="password" ng-model="password" type="password"/><br/>
+            <input id="create" type="button" ng-click="login()" value="登录"/><label ng-style="{color:isCreateStyle}">{{isCreate}}</label>
+        </form>
+    </div>
+    <div id="main_right" class="main_right">
+        <p class="p1">创建账户</p>
+        <p>尚未注册?</p>
+        <ul>
+            <li>快速付款</li>
+            <li>保存您的意愿清单</li>
+            <li>订单状态和订单历史记录</li>
+            <li>保存常用地址</li>
+        </ul>
+        <input class="regBtn" type="button" value="继续"/>
+
+    </div>
+
+</div>
+
+
+<div class="foot">
+    <div class="color"></div>
+    <div class="bottom">
+        <div class="bottom_container">
+            <div class="bottom_left">
+                <input type="button" value="取得独享优惠的电子邮件"/>
+                <p>成为获得关于独享优惠、最新 Lookbook 和最新潮流等信息的第一人。</p>
+                <img src="../../../img/sites-abercrombie_cn-site_files/weibo.png" alt=""/>
+                <p><a href="">查找门店</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="">沪ICP备14015436-1号
+                    <!--<img src="./img/Sites-abercrombie_cn-Site_files/anf-CN-govt-icon" alt=""/>-->
+                </a></p>
+            </div>
+            <div class="bottom_right">
+                <div class="d1">
+                    <ul>
+                        <li class="li1">帮助</li>
+                        <li>常见问题</li>
+                        <li>尺码表</li>
+                        <li>订单帮助</li>
+                        <li>在线订购</li>
+                        <li>运费和手续费</li>
+                        <li>退货和换货</li>
+                        <li>追踪我的订单</li>
+                    </ul>
+                </div>
+
+                <div class="d2">
+                    <ul>
+                        <li class="li1">隐私与条款</li>
+                        <li>隐私</li>
+                        <li>销售条款</li>
+                        <li>网站使用条例</li>
+                    </ul>
+                </div>
+                <div class="d3">
+                    <ul>
+                        <li class="li1">关于我们</li>
+                        <li>品牌保护</li>
+                        <li>职位招聘</li>
+                        <li>多样性</li>
+                        <li>投资者</li>
+                    </ul>
+                </div>
+                <div class="d4">
+                    <ul>
+                        <li class="li1">我们的品牌</li>
+                        <li>Abercrombie & Fitch</li>
+                        <li>Abercrombie Kids</li>
+                        <li>Hollister</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+

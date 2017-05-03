@@ -1,0 +1,201 @@
+
+    <style>
+        body{
+            font-family: "ff-tisa-web-pro-1", "ff-tisa-web-pro-2", "Lucida Grande", "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", "Hiragino Sans GB W3", "Microsoft YaHei UI", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+        }
+        .container{
+            height: 600px;
+        }
+        h3{
+            text-align: center;
+        }
+        .Margin{
+            margin-top: 30px;
+        }
+
+        table,th{
+            text-align: center;
+        }
+        #searchForm{
+            margin-top: -187px;
+        }
+        #fenye{
+            margin-left: 450px;
+        }
+        #searchForm input[type=text]{
+            margin-top: 85px;
+        }
+        li{
+            cursor: pointer;
+        }
+    </style>
+
+<div class="container">
+    <div class="row Margin">
+        <div class="col-xs-4 col-xs-push-4">
+            <div id="d1" class="panel panel-warning">
+                <table class="table">
+                    <tr>
+                        <th>编号</th>
+                        <th>姓名</th>
+                        <th>年龄</th>
+                        <th>性别</th>
+                        <th>操作</th>
+                    </tr>
+                    <tr ng-repeat="stu in page.data">
+                        <td>{{stu.s_id}}</td>
+                        <td>{{stu.s_name}}</td>
+                        <td>{{stu.s_age}}</td>
+                        <td>{{stu.s_sex}}</td>
+                        <td><input type="button" class="btn-danger" ng-click="delData()" value="删除"/>
+                            <input type="button" class="btn-success" ng-click="showById(stu.s_id)" value="修改"/></td>
+                    </tr>
+
+                </table>
+            </div>
+        </div>
+    </div>
+    <!--这是分页的-->
+    <div id="fenye">
+        <nav>
+            <ul class="pagination">
+                <li>
+                    <a  aria-label="Previous" ng-click="showAll(page.curpage,-1)">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                <li class="page" ng-repeat="pig in pages">
+                    <a  ng-click="showAll(page.curpage,0)">{{pig}}</a>
+                </li>
+
+                <li>
+                    <a  aria-label="Next" ng-click="showAll(page.curpage,1)">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <!--这是增加数据的-->
+    <div class="row">
+        <div class="col-xs-4 col-xs-push-6">
+            <form  id="addData">
+                <div>
+                    <label for="name">姓名:</label><input class="form-control" placeholder="username" id="name" ng-model="username3" name="name" type="text"/>
+                </div>
+                <div>
+                    <label for="age">年龄:</label><input class="form-control" placeholder="age" id="age" ng-model="age3" name="age" type="text"/>
+                </div>
+                <div>
+                    <label for="sex">性别:</label><input class="form-control" placeholder="sex" id="sex" name="sex" ng-model="sex3" type="text"/>
+                </div>
+                <div>
+                    <input class="btn btn-success" type="button" ng-click="add()" value="增加"/>
+                </div>
+
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4 col-xs-push-2">
+            <form  id="searchForm">
+                <select ng-model="searchValue:nl" class="form-control" name="">
+                    <option value="xm">姓名</option>
+                    <option value="nl">年龄</option>
+                    <option value="xb">性别</option>
+                </select>
+                <div>
+                    <input class="form-control" ng-model="searchText" placeholder="" type="text" />
+                </div>
+                <div>
+                    <input  type="button" class="btn btn-success"  ng-click="searchStudent()" value="搜索"/>
+                </div>
+            </form>
+        </div>
+        <div class="col-xs-4 col-xs-push-6">
+            <!-- Modal -->
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <!--<h4 class="modal-title" id="myModalLabel">Modal title</h4>-->
+                        </div>
+                        <div class="modal-body">
+                            <form id="updateData">
+                                <div class="">
+                                    <label for="name2">姓名:</label><input class="form-control" ng-model="name2" placeholder="username" id="name2" name="name2" type="text"/>
+                                </div>
+                                <div>
+                                    <label for="age2">年龄:</label><input class="form-control" ng-model="age2" placeholder="age" id="age2" name="age2" type="text"/>
+                                </div>
+                                <div>
+                                    <label for="sex2">性别:</label><input class="form-control" ng-model="sex2" placeholder="sex" id="sex2" name="sex2" type="text"/>
+                                </div>
+                                <div>
+                                    <input type="hidden" ng-model="id2" name="id2"/>
+                                </div>
+                                <div>
+                                    <input id="gengxin" ng-click="updateData()" class="btn btn-default" ng-model="gengxin" type="button" value="修改"/>
+                                </div>
+
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <!--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
+                            <!--<button type="button" class="btn btn-primary">Save changes</button>-->
+                        </div>
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+            </div><!-- /.modal -->
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <!-- Modal -->
+            <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" id="closeM" aria-hidden="true">&times;</button>
+                            <!--<h4 class="modal-title" id="myModalLabel">Modal title</h4>-->
+                        <!--这是我的搜索的-->
+                        </div>
+                        <div id="showSearch" class="modal-body">
+                            <table class="table">
+                                <tr>
+                                    <td>编号</td>
+                                    <td>姓名</td>
+                                    <td>年龄</td>
+                                    <td>性别</td>
+                                </tr>
+                                <tr ng-repeat="stu in shuju">
+                                    <td>{{stu.s_id}}</td>
+                                    <td>{{stu.s_name}}</td>
+                                    <td>{{stu.s_age}}</td>
+                                    <td>{{stu.s_sex}}</td>
+                                </tr>
+                            </table>
+
+                        </div>
+                        <div class="modal-footer">
+                            <!--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
+                            <!--<button type="button" class="btn btn-primary">Save changes</button>-->
+                        </div>
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+            </div><!-- /.modal -->
+            <!--<div id="showSearch" style="display: none"></div>-->
+        </div>
+
+    </div>
+
+
+</div>
+
+
+
+
+
+
+

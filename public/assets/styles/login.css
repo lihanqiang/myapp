@@ -1,0 +1,20 @@
+
+body{
+    font-family: "ff-tisa-web-pro-1", "ff-tisa-web-pro-2", "Lucida Grande", "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", "Hiragino Sans GB W3", "Microsoft YaHei UI", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+}
+.Form2{
+    margin: 100px 400px;
+    background: #e6edf2;
+    height: 200px;
+}
+#myForm2 input{
+    margin: 10px auto;
+}
+
+#btn1{
+    position: absolute;
+    left: 544px;
+    top: 233px;
+}
+
+

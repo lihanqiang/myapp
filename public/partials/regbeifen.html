@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html ng-app="regModule">
+<head lang="en">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>登录</title>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/login.css"/>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.min.js"></script>
+    <![endif]-->
+    <script src="js/angular.min.js"></script>
+    <style>
+
+        /*body{*/
+        /*font-family: "TradeGothic Bold",Arial,sans-serif;*/
+        /*margin: 0;*/
+        /*padding: 0;*/
+        /*font-size: 16px;*/
+        /*}*/
+        /*.head .first_line{*/
+        /*color: white;*/
+        /*padding-top: 1px;*/
+        /*margin: 0;*/
+        /*font: 0.857em/1em "TradeGothic Bold",Arial,sans-serif;*/
+        /*width: 100%;*/
+        /*position: relative;*/
+        /*height: 3.125em;*/
+        /*border-bottom: 1px solid white;*/
+        /*background: #262626;*/
+        /*}*/
+        /*.first_line .first_line_left{*/
+        /*padding: 0;*/
+        /*position: relative;*/
+        /*margin: 5px 0 0 5px;*/
+        /*width: 8.3125em;*/
+        /*height: 2.125em;*/
+        /*overflow: hidden;*/
+        /*zoom:1;*/
+        /*z-index: 3;*/
+        /*}*/
+        /*.first_line .first_line_left:hover{*/
+        /*cursor: pointer;*/
+        /*background: #f9f5f0;*/
+        /*height: 120px;*/
+        /*color: black;*/
+        /*border-color: #C3C0C2;*/
+        /*}*/
+        /*.first_line .first_line_left .ul1{*/
+        /*padding: 0 1em;*/
+        /*top: 0;*/
+        /*left: 0;*/
+        /*position: absolute;*/
+        /*line-height: 1.125em;*/
+        /*height: 100px;*/
+        /*text-align: center;*/
+        /*}*/
+        /*.first_line .first_line_left .ul1 li{*/
+        /*list-style: none;*/
+        /*padding-bottom: 10px;*/
+        /*text-align: center;*/
+        /*}*/
+        /*.li1:hover,.li2:hover,.li3:hover,.li4:hover{*/
+        /*text-decoration: underline;*/
+        /*background: #f9f5f0;*/
+        /*}*/
+        /*.logo_div {*/
+        /*padding-top: 1px;*/
+        /*width: 100%;*/
+        /*height: 75px;*/
+        /*/!*outline: 1px solid red;*!/*/
+        /*position: relative;*/
+        /*z-index: 2;*/
+        /*background: #262626;*/
+        /*}*/
+        /*.first_line_logo{*/
+        /*display: block;*/
+        /*margin: -30px auto 0;*/
+        /*cursor: pointer;*/
+        /*}*/
+        /*.first_line_right{*/
+        /*position: absolute;*/
+        /*top: 0;*/
+        /*right: 0;*/
+        /*}*/
+        /*.first_line  .first_line_right{*/
+        /*width: 260px;*/
+        /*line-height: 4.125em;*/
+        /*vertical-align: middle;*/
+        /*}*/
+        /*.first_line_right span{*/
+        /*/!*margin:  auto 10px;*!/*/
+        /*}*/
+        /*.first_line_right span{*/
+        /*padding: 5px 10px;*/
+        /*}*/
+        /*.first_line_right span:hover{*/
+        /*text-decoration: underline;*/
+        /*cursor: pointer;*/
+        /*background: white;*/
+        /*color: black;*/
+        /*border-color: #C3C0C2;*/
+        /*}*/
+        /*.first_line_right .span2_div{*/
+        /*position: absolute;*/
+        /*background: white;*/
+        /*width: 200px;*/
+        /*height: 120px;*/
+        /*right: 42px;*/
+        /*top: 41px;*/
+        /*z-index: 3;*/
+        /*display: none;*/
+        /*}*/
+        /*.selectButtons{*/
+        /*height: 30px;*/
+        /*width: 100%;*/
+
+        /*}*/
+        /*.selectButtons ul{*/
+        /*margin: 0 auto;*/
+        /*}*/
+        /*.selectButtons ul li{*/
+        /*float: left;*/
+        /*list-style: none;*/
+        /*}*/
+        /*.main{*/
+        /*width: 70%;*/
+        /*height: 600px;*/
+        /*outline:1px solid red;*/
+        /*margin: 0 auto;*/
+        /*}*/
+        /*.main a{*/
+        /*color: #999;*/
+        /*background: #fffef7;*/
+        /*}*/
+
+
+
+
+    </style>
+    <script>
+        var regModule = angular.module("regModule",[]);
+        regModule.controller("regController",function($scope,$http){
+            $scope.validateUsername = function(){
+                if((/^[0-9A-Za-z]{6,20}$/).test($scope.username) && $scope.username != null){
+                    $http.post("/users/validateName",{name:$scope.username})
+                            .success(function(data){
+                                console.log(typeof (data));
+                                if(data == "true"){
+                                    $scope.usernameLabel = "正确";
+                                    $scope.isRight = "green";
+                                }
+                                else{
+                                    $scope.usernameLabel = "用户名已存在";
+                                    $scope.isRight = "red";
+                                }
+                            });
+
+
+                }
+                else{
+                    $scope.usernameLabel = "不正确";
+                    $scope.isRight = "red";
+                }
+            };
+            $scope.validatePwd = function(){
+                if((/^[_0-9A-Za-z]{6,10}$/).test($scope.password) && $scope.password != null){
+                    $scope.passwordLabel = "正确";
+                    $scope.isPwdRight = "green";
+
+                }
+                else{
+                    $scope.passwordLabel = "不正确";
+                    $scope.isPwdRight = "red";
+                }
+            };
+            $scope.validate = function(){
+                if(($scope.isRight == "green") && ($scope.isPwdRight == "green")){
+                    $scope.validateUsername();
+                    $scope.validatePwd();
+                    $http.post("/users/reg",{name:$scope.username,pwd:$scope.password})
+                            .success(function(data){
+                                console.log(data);
+                                location.href = "js/modules/login/login.html";
+                            });
+
+
+
+
+                    location.href = "js/modules/login/login.html";
+                }
+                else{
+                    alert("注册失败!");
+                }
+            }
+        })
+    </script>
+</head>
+<body ng-controller="regController">
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4 nav_left">
+
+        </div>
+    </div>
+</div>
+
+
+<!--<div class="head">-->
+<!--<div class="first_line">-->
+<!--<div class="first_line_left">-->
+<!--<ul class="ul1">-->
+<!--<li class="li1">满299免邮!</li>-->
+<!--<li class="li2">购买男装</li>-->
+<!--<li class="li3">购买女装</li>-->
+<!--<li class="li4">查看详情</li>-->
+<!--</ul>-->
+<!--</div>-->
+<!--<div class="first_line_right">-->
+<!--<span class="span1">ENGLISH</span>-->
+<!--<div class="span2_div"></div>-->
+<!--<span class="span2">登录</span>-->
+<!--<span class="span3">购物袋</span>-->
+<!--<span>付款</span>-->
+<!--</div>-->
+<!--</div>-->
+<!--<div class="logo_div">-->
+<!--<img class="first_line_logo" src="./img/Sites-abercrombie_cn-Site_files/2015-12-01_140600_03.png" alt=""/>-->
+<!--</div>-->
+<!--<div class="selectButtons">-->
+<!--<ul>-->
+<!--<li>男装</li>-->
+<!--<li>女装</li>-->
+<!--<li>牛仔裤</li>-->
+<!--<li>LOOKBOOK</li>-->
+<!--<li><input type="text" placeholder="搜索产品"/></li>-->
+<!--</ul>-->
+
+<!--</div>-->
+
+<!--</div>-->
+<!--<div class="main">-->
+<!--<p>创建账户</p>-->
+<!--<p>如果你有一个账户,请 <a href="">登录</a></p>-->
+
+<!--<form id="regForm" action="" name="regForm">-->
+<!--<label for="username">姓名</label><input id="username" type="text"/><br/>-->
+<!--<label for="email">电子邮件</label><input id="email" type="text"/><span>您可使用您的电子邮件登录，我们将通过该地址与您联系</span><br/>-->
+<!--<label for="password">密码</label><input id="password" type="password"/><span>密码必须是 8-25 位字符，且包含字母和数字。</span><br/>-->
+<!--<label for="confirm">密码</label><input id="confirm" type="password"/><br/>-->
+<!--<label for="service"></label><input id="service" type="checkbox"/><span>我确认我已阅读并接受 <a href="">网站使用条款</a>，并同意ABERCROMBIE & FITCH收集、使用和传输我的个人信息，以用于 <a-->
+<!--href="">隐私政策</a>规定的目的。</span>-->
+<!--</form>-->
+<!--</div>-->
+
+
+</body>
+<script src="js/jquery-1.11.2-min.js"></script>
+<script>
+
+
+</script>
+</html>

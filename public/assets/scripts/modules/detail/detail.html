@@ -1,0 +1,664 @@
+
+
+    <style>
+        .main{
+            width: 80%;
+            overflow: hidden;
+        }
+        .main_left ul li{
+            padding: 20px 0;
+        }
+        .main_left ul .li1{
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+        .main_left ul li:hover{
+            cursor: pointer;
+            color:black;
+        }
+
+        .main_right .slider{
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+            width: 611px;
+            height: 345px;
+            z-index: -1;
+        }
+        .main_right .slider img{
+            width: 100%;
+        }
+        .main .left{
+            clear: both;
+            float: left;
+            width: 10%;
+        }
+        .main .middle{
+            width: 45%;
+            float: left;
+        }
+        .main .middle img{
+            width: 350px;
+        }
+        .main .right{
+            float: left;
+            width: 45%;
+        }
+        .right .goods_name{
+            color:#3a3a39;
+            font: 2.143em/1.0617em "TradeGothic BoldCondTwenty";
+        }
+        .right .price{
+            color: #3a3a39;
+            font: 2em/1em "TradeGothic BoldCondTwenty";
+        }
+        .right .size{
+            color: #3A3A39;
+            font: .929em/1.538em Arial,Helvetica,sans-serif;
+        }
+        .right .choose_size input{
+            padding: 10px 14px;
+            cursor: pointer;
+            border: 1px solid ;
+        }
+        .right .choose_size input:hover{
+            background: #3a3a39;
+        }
+        .right #number{
+            margin-top: 20px;
+            width: 300px;
+            height: 40px;
+            border: 1px solid ;
+        }
+        .right .buyBtn{
+            margin-top: 20px;
+            width: 300px;
+            height: 40px;
+            border: 1px solid #0c631a;
+            background: #0c631a;
+            color: white;
+            font: 15px "TradeGothic Bold",Arial,Helvetica,sans-serif;
+            cursor: pointer;
+            text-align: center;
+            line-height: 40px;
+        }
+        .right .buyBtn:hover{
+            border: 1px solid #30551E;
+            background: #30551E;
+        }
+        .right .wish,.right .share{
+            background: white;
+            cursor: pointer;
+            margin-top: 20px;
+            width: 148.5px;
+            height: 40px;
+            border: 1px solid;
+            font: 15px "TradeGothic Bold",Arial,Helvetica,sans-serif;
+        }
+        .main .content{
+            clear: both;
+            width: 100%;
+            overflow: hidden;
+            zoom: 1;
+
+        }
+        .content .nav_div{
+            clear: both;
+            width: 300px;
+            height: 40px;
+            border-top: 1px solid #212121;
+            border-bottom: 1px solid #212121;
+            border-left: 1px solid #212121;
+            color: black;
+            margin: 50px auto;
+        }
+        .content .nv1{
+            color: white;
+            background: #3a3a39;
+
+        }
+        .content .nv1,.content .nv2, .content .nv3{
+            font:.857em/34px 'TradeGothic Bold';
+            height: 100%;
+            width: 99px;
+            border-right: 1px solid #212121;
+            cursor: pointer;
+        }
+        .content .nv3 {
+            border-right: 1px solid #212121;
+        }
+        .content .nav_div div{
+            text-align: center;
+            line-height: 40px;
+            float: left;
+        }
+        .content .show_details{
+            margin: 40px auto;
+            width: 80%;
+            /*height: 500px;*/
+            /*background: blue;*/
+            padding-top: 1px;
+        }
+        .content .show_details .intro,.comment{
+            width: 60%;
+            margin: 10px auto;
+         }
+        .content .show_details .intro,.comment{
+            color: #212121;
+            font: 1.071em/1.4em 'EB Garamond',Arial;
+        }
+        .content .show_details .intro .intro3{
+            font: 13px/normal "EB Garamond",serif;
+            color: #666;
+        }
+        .main .more{
+            width: 100%;
+            margin: 0  auto;
+            overflow: hidden;
+            border-top: solid 1px #dbdad1;
+            clear: both;
+        }
+        .main .more p{
+            text-align: center;
+            margin-top: 30px;
+            color: #212121;
+            font: 1.071em/1.4em 'EB Garamond',Arial;
+        }
+        .main .more .images{
+
+            margin: 0 auto;
+            width: 80%;
+        }
+        .main .more .images div{
+            float: left;
+            width: 25%;
+        }
+        .main .more .images div img{
+            width: 100%;
+        }
+        .main .left,.main .middle ,.main .right{
+            display: block;
+        }
+        .main .img_top,.main .imgs_bottom,.goods_something{
+            display: none;
+        }
+        .main .images{
+            text-align: center;
+            color: black;
+            font: 1.071em/1.4em 'EB Garamond',Arial;
+        }
+        .main .images a{
+            color: black;
+        }
+        .main .chima,.main .comment, .main .intro img{
+            text-align: center;
+        }
+        .main .comment{
+            text-align: start;
+            display: none;
+        }
+        .main .left_imgs img{
+            width: 75px;
+            height: 93px;
+            cursor: pointer;
+        }
+
+
+
+
+
+
+        @media screen and (max-width: 1100px) {
+            #menu,.selectButtons{
+                display: none;
+            }
+            body{
+                padding-top: 1px;
+            }
+            .top_div{
+                line-height: 30px;
+                cursor: pointer;
+                text-align: center;
+                height: 30px;
+                width: 100%;
+                background: #999;
+            }
+            .logo_div{
+                text-align: center;
+                margin-top: 8px;
+                vertical-align: middle;
+                height: 50px;
+                background: #262626;
+            }
+            .logo_div img{
+                cursor: pointer;
+            }
+            .menu_img,.search_img{
+                margin-top: 14px;
+                float: left;
+                display: block;
+            }
+            .menu_img {
+                margin-right: 10px;
+            }
+            .user_img,.market_img{
+                float: right;
+                display: block;
+            }
+            .market_img{
+                margin-top: 11px;
+                margin-right: 10px;
+            }
+            .user_img{
+                margin-top: 14px;
+            }
+            #regForm input{
+                width: 100%;
+            }
+            #regForm span{
+                padding-bottom: 10px;
+                padding-top: 10px;
+            }
+            .main{
+                /*height: 1000px;*/
+            }
+            .first_line_logo{
+                display: none;
+            }
+            .foot{
+                height: 500px;
+            }
+            .foot .bottom .bottom_right ,.foot .bottom .bottom_left{
+                clear: both;
+                width: 100%;
+            }
+            .bottom_left input{
+                width: 100%;
+            }
+            .first_line_logo2{
+                /*margin-top: 10px;*/
+                display: inline-block;
+            }
+            .bottom_left img{
+                display: block;
+                cursor: pointer;
+                margin:  0 auto;
+            }
+            .bottom_left p{
+                text-align: center;
+            }
+            .bottom_container{
+                width: 100%;
+                height: 300px;
+                margin: 0 auto;
+            }
+            .foot .bottom .bottom_right{
+                clear: both;
+                height: 200px;
+                width: 100%;
+            }
+            .foot .bottom_right{
+                background: #262626;
+                color: white;
+            }
+            .bottom_right div ul li{
+                text-align: center;
+            }
+            .bottom_right div .li1{
+                font-size:1em;
+                color: #999;
+                padding: 15px 0;
+            }
+            body .main .left ,body .main .right ,body .main .middle{
+                display: none;
+            }
+            .main .img_top,.main .imgs_bottom{
+                display: block;
+            }
+            body .main .img_top{
+                width: 100%;
+            }
+            body .main .img_top img{
+                display: block;
+                margin: 0 auto;
+            }
+            body .main .imgs_bottom div{
+                width: 320px;
+                margin: 0 auto;
+            }
+            .main .show_details{
+                width: 100%;
+            }
+            .main .goods_something {
+                display: block;
+            }
+            body .main .goods_something .goods_name{
+                color:#3a3a39;
+                font: 2.143em/1.0617em "TradeGothic BoldCondTwenty";
+            }
+            body .main.goods_something div p{
+                text-align: left;
+            }
+            body .main.goods_something .price{
+                color: #3a3a39;
+                font: 2em/1em "TradeGothic BoldCondTwenty";
+            }
+            body .main.goods_something .size{
+                text-align: left;
+                color: #3A3A39;
+                font: .929em/1.538em Arial,Helvetica,sans-serif;
+            }
+            body .main .goods_something .choose_size input{
+                padding: 10px 14px;
+                cursor: pointer;
+                border: 1px solid ;
+            }
+            .goods_something .choose_size input:hover{
+                background: #3a3a39;
+            }
+            .goods_something #number_phone{
+                margin-top: 20px;
+                width: 100%;
+                height: 40px;
+                border: 1px solid ;
+            }
+            .goods_something .buyBtn{
+                margin-top: 20px;
+                width: 100%;
+                height: 40px;
+                border: 1px solid #0c631a;
+                background: #0c631a;
+                color: white;
+                font: 15px "TradeGothic Bold",Arial,Helvetica,sans-serif;
+                cursor: pointer;
+                text-align: center;
+                line-height: 40px;
+            }
+            .goods_something .buyBtn:hover{
+                border: 1px solid #30551E;
+                background: #30551E;
+            }
+            .goods_something .wish,.goods_something .share{
+                background: white;
+                cursor: pointer;
+                margin-top: 20px;
+                width: 49%;
+                height: 40px;
+                border: 1px solid;
+                font: 15px "TradeGothic Bold",Arial,Helvetica,sans-serif;
+            }
+            .main .intro img,.main .chima img{
+                width: 100%;
+            }
+            body .main .img_top img{
+                width: 100%;
+            }
+            .main .left_imgs img{
+                padding-left: 2%;
+                float: left;
+            }
+            body .main .goods_something .goods_name{
+                margin-top: 100px;
+            }
+
+        }
+    </style>
+
+
+
+
+<div class="head">
+    <div class="first_line">
+        <div class="top_div">满299免邮</div>
+        <div id="menu">
+            <ul id="nav">
+                <li class="mainlevel" id="mainlevel_01"><a href="" ng-mouseover="move()" target="_blank">满299免邮</a>
+                    <ul id="sub_01">
+                        <li><a href="" target="_blank">购买男装</a></li>
+                        <li><a href="" target="_blank">购买女装</a></li>
+                        <li><a href="" target="_blank">查看详情</a></li>
+                    </ul>
+                </li>
+
+                <li class="mainlevel" id="mainlevel_02"><a href="" ng-mouseover="move()" target="_blank">ENGLISH</a>
+                    <ul id="sub_02">
+                    </ul>
+                </li>
+
+                <li class="mainlevel" id="mainlevel_03"><a href="" ng-mouseover="move()" target="_blank">{{loginName}}</a>
+                    <ul id="sub_03">
+                        <!--<li><a href="" target="_blank">登录</a></li>-->
+                        <li><a href="" target="_blank">创建账户</a></li>
+                        <li><a href="" target="_blank">追踪我的订单</a></li>
+                    </ul>
+                </li>
+
+                <li class="mainlevel" id="mainlevel_04"><a href="" ng-mouseover="move()" target="_blank">购物袋</a>
+                    <ul id="sub_04">
+
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+
+    </div>
+
+    <div class="logo_div">
+        <img class="menu_img" src="../../../img/sites-abercrombie_cn-site_files/menu.png" alt=""/>
+        <img class="search_img" src="../../../img/sites-abercrombie_cn-site_files/search.png" alt=""/>
+        <img class="first_line_logo2" src="../../../img/Sites-abercrombie_cn-Site_files/logo2.png" alt=""/>
+        <img class="first_line_logo" src="../../../img/Sites-abercrombie_cn-Site_files/logo.png" alt=""/>
+        <img class="user_img" src="../../../img/Sites-abercrombie_cn-Site_files/user.png" alt=""/>
+        <img class="market_img" src="../../../img/Sites-abercrombie_cn-Site_files/market.png" alt=""/>
+    </div>
+
+    <div class="selectButtons">
+        <span>男装</span>
+        <span>女装</span>
+        <span>牛仔裤</span>
+        <span>LOOKBOOK</span>
+        <!--<div>-->
+            <!--<input type="text" placeholder="搜索产品"/><img src="../../../img/sites-abercrombie_cn-site_files/searchimg.png" alt=""/>-->
+        <!--</div>-->
+    </div>
+
+</div>
+
+
+<!--中间部分-->
+
+<div class="main">
+    <div class="left">
+        <div class="left_imgs" ng-repeat="pic1 in img">
+            <img src="{{pic1}}" ng-click="changeImg(this)" alt=""/>
+        </div>
+    </div>
+    <div class="middle">
+        <div class="middle_imgs">
+            <img src="{{middleImgSrc}}" alt=""/>
+        </div>
+
+    </div>
+    <div class="right">
+        <div>
+            <p class="goods_name">{{goods_name}}</p>
+            <p class="price">{{price}}</p>
+            <p class="size">尺码</p>
+            <div class="choose_size"  >
+                <input type="button" ng-click="chooseSize('XS')" class="XS" value="XS"/>
+                <input type="button" ng-click="chooseSize('S')" class="S" value="S"/>
+                <input type="button" ng-click="chooseSize('M')" class="M" value="M"/>
+                <input type="button" ng-click="chooseSize('L')" class="L" value="L"/>
+                <input type="button" ng-click="chooseSize('XL')" class="XL" value="XL"/>
+                <input type="button" ng-click="chooseSize('XXL')" class="XXL" value="XXL"/>
+            </div>
+            <div>
+                <select ng-change="showNum()" name="number" ng-model="selectNumber"  id="number">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </div>
+            <a style="text-decoration: none" href="#/cart">
+                <div ng-click="goCart()" class="buyBtn">加入购物车
+            </div></a>
+
+            <div class="boot">
+                <input class="wish" type="button" value="愿望单"/>
+                <input class="share" type="button" value="分享"/>
+            </div>
+
+        </div>
+    </div>
+
+    <!--移动端的上面-->
+    <div class="img_top">
+        <div class="middle_imgs">
+            <img src="{{middleImgSrc}}" alt=""/>
+        </div>
+    </div>
+    <div class="imgs_bottom">
+        <div class="left_imgs" ng-repeat="pic1 in img">
+            <img src="{{pic1}}" ng-click="changeImg(this)" alt=""/>
+        </div>
+
+    </div>
+
+    <div class="goods_something ">
+        <div>
+            <p class="goods_name">{{goods_name}}</p>
+            <p class="price">{{price}}</p>
+            <p class="size">尺码</p>
+            <div class="choose_size"  >
+                <input type="button" ng-click="chooseSize('XS')" class="XS" value="XS"/>
+                <input type="button" ng-click="chooseSize('S')" class="S" value="S"/>
+                <input type="button" ng-click="chooseSize('M')" class="M" value="M"/>
+                <input type="button" ng-click="chooseSize('L')" class="L" value="L"/>
+                <input type="button" ng-click="chooseSize('XL')" class="XL" value="XL"/>
+                <input type="button" ng-click="chooseSize('XXL')" class="XXL" value="XXL"/>
+            </div>
+            <div>
+                <select ng-change="showNum()" name="number" ng-model="selectNumber"  id="number_phone">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </div>
+            <a style="text-decoration: none" href="#/cart">
+                <div ng-click="goCart()" class="buyBtn">加入购物车
+                </div></a>
+
+
+            <div class="boot">
+                <input class="wish" type="button" value="愿望单"/>
+                <input class="share" type="button" value="分享"/>
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <div class="content">
+        <div class="nav_div">
+            <div class="nv1">详情</div>
+            <div class="nv2">尺码表</div>
+            <div class="nv3" >评论</div>
+        </div>
+        <div class="show_details">
+            <div class="intro">
+                <img src="{{introImg}}" alt=""/>
+            </div>
+            <div class="chima">
+                <img src="../../../img/clothes/chimabiao.png" alt=""/>
+            </div>
+            <!--评论-->
+            <div class="comment" ng-repeat="cmt in page">
+                <p><span>{{cmt.u_name}}:</span>&nbsp;&nbsp;&nbsp;&nbsp;{{cmt.m_content}}<span>&nbsp;&nbsp;&nbsp;&nbsp;{{cmt.m_date|date:"yyyy-MM-dd"}}</span></p>
+            </div>
+            <div class="comment" ><span>我要评论:</span><input ng-model="myComment" type="text"/><input type="button"  ng-click="addComment()" value="添加评论"/></div>
+        </div>
+    </div>
+
+    <div class="more">
+        <p class="more_p">THERE'S MORE TO SEE</p>
+        <div class="images">
+            <div><img src="../../../img/Sites-abercrombie_cn-Site_files/huagezi.png" alt=""/>
+                <a href="">格子呢斜纹布衬衫</a>
+                <p>¥648</p></div>
+            <div><img src="../../../img/Sites-abercrombie_cn-Site_files/honggezi.png" alt=""/>
+                <a href="">格子呢斜纹布衬衫</a>
+                <p>¥648</p></div>
+            <div><img src="../../../img/Sites-abercrombie_cn-Site_files/langezi.png" alt=""/>
+                <a href="">格子呢斜纹布衬衫</a>
+                <p>¥648</p></div>
+            <div><img src="../../../img/Sites-abercrombie_cn-Site_files/heigeizi.png" alt=""/>
+                <a href="">格子呢斜纹布衬衫</a>
+                <p>¥648</p></div>
+        </div>
+
+    </div>
+
+
+</div>
+<div class="foot">
+    <div class="color"></div>
+    <div class="bottom">
+        <div class="bottom_container">
+            <div class="bottom_left">
+                <input type="button" value="取得独享优惠的电子邮件"/>
+                <p>成为获得关于独享优惠、最新 Lookbook 和最新潮流等信息的第一人。</p>
+                <img src="../../../img/sites-abercrombie_cn-site_files/weibo.png" alt=""/>
+                <p><a href="">查找门店</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="">沪ICP备14015436-1号
+                    <!--<img src="./img/Sites-abercrombie_cn-Site_files/anf-CN-govt-icon" alt=""/>-->
+                </a></p>
+            </div>
+            <div class="bottom_right">
+                <div class="d1">
+                    <ul>
+                        <li class="li1">帮助</li>
+                        <li>常见问题</li>
+                        <li>尺码表</li>
+                        <li>订单帮助</li>
+                        <li>在线订购</li>
+                        <li>运费和手续费</li>
+                        <li>退货和换货</li>
+                        <li>追踪我的订单</li>
+                    </ul>
+                </div>
+
+                <div class="d2">
+                    <ul>
+                        <li class="li1">隐私与条款</li>
+                        <li>隐私</li>
+                        <li>销售条款</li>
+                        <li>网站使用条例</li>
+                    </ul>
+                </div>
+                <div class="d3">
+                    <ul>
+                        <li class="li1">关于我们</li>
+                        <li>品牌保护</li>
+                        <li>职位招聘</li>
+                        <li>多样性</li>
+                        <li>投资者</li>
+                    </ul>
+                </div>
+                <div class="d4">
+                    <ul>
+                        <li class="li1">我们的品牌</li>
+                        <li>Abercrombie & Fitch</li>
+                        <li>Abercrombie Kids</li>
+                        <li>Hollister</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

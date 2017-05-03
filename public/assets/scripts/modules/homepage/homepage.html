@@ -1,0 +1,324 @@
+<!--homepage的头和中间和尾巴-->
+<link rel="stylesheet" href="../../../css/homepage.css"/>
+<!--<link rel="stylesheet" href="../../../css/xialacaidan_style.css"/>-->
+    <div class="head">
+        <div class="first_line">
+            <div class="top_div">满299免邮</div>
+            <div id="menu">
+                <ul id="nav">
+                    <li class="mainlevel" id="mainlevel_01"><a href="" ng-mouseover="move()" target="_blank">满299免邮</a>
+                        <ul id="sub_01">
+                            <li><a href="" target="_blank">购买男装</a></li>
+                            <li><a href="" target="_blank">购买女装</a></li>
+                            <li><a href="" target="_blank">查看详情</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="mainlevel" id="mainlevel_02"><a href="" ng-mouseover="move()" target="_blank">ENGLISH</a>
+                        <ul id="sub_02">
+                        </ul>
+                    </li>
+
+                    <li class="mainlevel" id="mainlevel_03"><a href="" ng-mouseover="move()" ng-click="showLogin()" target="_blank">{{loginName}}</a>
+                        <ul id="sub_03">
+                            <!--<li><a href="" target="_blank">登录</a></li>-->
+                            <li><a href="" ng-click="showReg()" target="_blank">创建账户</a></li>
+                            <li><a href="" target="_blank">追踪我的订单</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="mainlevel" id="mainlevel_04"><a href="" ng-mouseover="move()" target="_blank">购物袋</a>
+                        <ul id="sub_04">
+
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+
+        </div>
+
+        <div class="logo_div">
+            <img class="menu_img" src="../../../img/sites-abercrombie_cn-site_files/menu.png" alt=""/>
+            <img class="search_img" src="../../../img/sites-abercrombie_cn-site_files/search.png" alt=""/>
+            <img class="first_line_logo2" src="../../../img/Sites-abercrombie_cn-Site_files/logo2.png" alt=""/>
+            <img class="first_line_logo" src="../../../img/Sites-abercrombie_cn-Site_files/logo.png" alt=""/>
+            <img class="user_img" src="../../../img/Sites-abercrombie_cn-Site_files/user.png" alt=""/>
+            <img class="market_img" src="../../../img/Sites-abercrombie_cn-Site_files/market.png" alt=""/>
+        </div>
+
+        <div class="selectButtons">
+            <span>男装</span>
+            <span>女装</span>
+            <span>牛仔裤</span>
+            <span>LOOKBOOK</span>
+            <!--<div>-->
+            <!--<input type="text" placeholder="搜索产品"/><img src="./img/sites-abercrombie_cn-site_files/searchimg.png" alt=""/>-->
+            <!--</div>-->
+        </div>
+
+    </div>
+
+
+    <!--中间部分-->
+
+    <div class="main">
+        <div class="main_top shuff">
+            <div class="slider">
+                <img id="slide1" src="../../../img/sites-abercrombie_cn-site_files/giftguide.png" alt=""/><img id="slide2" src="../../../img/sites-abercrombie_cn-site_files/img2_02.png" alt=""/><img id="slide3" src="../../../img/sites-abercrombie_cn-site_files/img3_02.png" alt=""/>
+                <input id="prev" type="button" value="<"/>
+                <input id="next" type="button" value=">"/>
+            </div>
+
+            <div class="slider2 shuffinner">
+                <img class="shuffimg" src="../../../img/sites-abercrombie_cn-site_files/slider1.png" alt=""/>
+                <img class="shuffimg" src="../../../img/sites-abercrombie_cn-site_files/slider2.png" alt=""/>
+                <!--<img src="./img/sites-abercrombie_cn-site_files/slider0.png" alt=""/>-->
+            </div>
+        </div>
+        <div class="main_left">
+            <ul>
+                <!--<li class="li1">全部</li>-->
+                <li class="li1">推荐</li>
+
+                <li>外套</li>
+                <li>针织衫</li>
+                <li>衬衣</li>
+                <li>T恤和套衫</li>
+                <li>牛仔裤</li>
+            </ul>
+        </div>
+        <div class="main_right">
+            <div class="search_div">
+                <select name="" ng-model="selectOptions" ng-change="chooseType()" id="selectOptions">
+                    <option value="type">按类别</option>
+                    <option value="goods">按商品</option>
+                    <!--<option value="">按价格</option>-->
+                </select>
+                <input id="search_goods" ng-model="searchValue" type="text" placeholder="搜索商品"/>
+                <img ng-click="searchAllGoods()" src="../../../img/sites-abercrombie_cn-site_files/Search-white.png" alt=""/>
+            </div>
+            <!--搜索的-->
+            <div class="allSearch">
+                <div class="divs" id="firstSearch">
+                    <div class="lots">
+                        <div class="r1_1" ng-repeat="pro2 in page2" id="{{pro2.p_id}}">
+                            <a href="#/detail?id={{pro2.p_id}}"><img src="{{pro2.p_img_item1}}" alt=""/></a>
+                            <p><a href="#/detail?id={{pro2.p_id}}">{{pro2.p_name}}</a></p>
+                            <p>{{pro2.p_descripe}}</p>
+                            <p style="font-weight: bold;color: black">{{pro2.p_price}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--那些衣服啊,裤子啊-->
+            <!--第一个页面-->
+            <!--&lt;!&ndash;点击搜索显示的界面&ndash;&gt;-->
+            <!--<div class="divs" style="width: 100%;height: 100%;display: none" id="searchDiv">-->
+                <!--<div class="lots">-->
+                    <!--<div class="r1_1" ng-repeat="s in page2" id="{{s.p_id}}">-->
+                        <!--<a href="#/detail?id={{s.p_id}}"><img src="{{s.p_img_item1}}" alt=""/></a>-->
+                        <!--<p><a href="#/detail?id={{s.p_id}}">{{s.p_name}}</a></p>-->
+                        <!--<p>{{s.p_descripe}}</p>-->
+                        <!--<p style="font-weight: bold;color: black">{{s.p_price}}</p>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+            <div class="all">
+                <div class="divs" id="first" >
+                    <div class="lots">
+                        <div class="r1_1" ng-repeat="pro in page" id="{{pro.p_id}}">
+                                    <a href="#/detail?id={{pro.p_id}}"><img src="{{pro.p_img_item1}}" alt=""/></a>
+                                    <p><a href="#/detail?id={{pro.p_id}}">{{pro.p_name}}</a></p>
+                                    <p>{{pro.p_descripe}}</p>
+                                    <p style="font-weight: bold;color: black">{{pro.p_price}}</p>
+                        </div>
+                        <div class="r1_2">
+                            <!--<img src="../../../img/clothes/tuijian1-2m.jpg" alt=""/>-->
+                            <!--<p class="p1">A&F 全季轻盈羽绒夹克</p>-->
+                            <!--<p class="p2">A&F 羽绒系列</p>-->
+                            <!--<p class="p3">¥988</p>-->
+                        </div>
+                        <div class="r1_3">
+                            <!--<img src="../../../img/clothes/img3.jpg" alt=""/>-->
+                            <!--<p class="p1">A&F 全季轻盈羽绒夹克</p>-->
+                            <!--<p class="p2">A&F 羽绒系列</p>-->
+                            <!--<p class="p3">¥988</p>-->
+                        </div>
+                    </div>
+                    <div class="lots">
+                        <div class="r1_1">
+                            <!--<img src="../../../img/clothes/tuijian1-1m.jpg" alt=""/>-->
+                            <!--<p class="p1">羊羔绒里衬尼龙派克大衣</p>-->
+                            <!--<p class="p3">¥2,140</p>-->
+                        </div>
+                        <div class="r1_2">
+                            <!--<img src="../../../img/clothes/img15.jpg" alt=""/>-->
+                            <!--<p class="p1">羊羔绒里衬尼龙派克大衣</p>-->
+                            <!--<p class="p3">¥2,140</p>-->
+                        </div>
+                        <div class="r1_3">
+                            <!--<img src="../../../img/clothes/img19.jpg" alt=""/>-->
+                            <!--<p class="p1">羊羔绒里衬尼龙派克大衣</p>-->
+                            <!--<p class="p3">¥2,140</p>-->
+                        </div>
+                    </div>
+                </div>
+
+                <!--第二个页面-->
+                <div id="second" class="lots">
+                    <div class="r1_1">
+                        <img src="../../../img/clothes/tuijian1-1m.jpg" alt=""/>
+                        <p class="p1">羊羔绒里衬尼龙派克大衣2</p>
+                        <p class="p3">¥2,140</p>
+                    </div>
+                    <div class="r1_2">
+                        <img src="../../../img/clothes/img15.jpg" alt=""/>
+                        <p class="p1">羊羔绒里衬尼龙派克大衣2</p>
+                        <p class="p3">¥2,140</p>
+                    </div>
+                    <div class="r1_3">
+                        <img src="../../../img/clothes/img19.jpg" alt=""/>
+                        <p class="p1">羊羔绒里衬尼龙派克大衣2</p>
+                        <p class="p3">¥2,140</p>
+                    </div>
+                </div>
+
+                <!--第三个页面-->
+                <div id="third" class="lots">
+                    <div class="r1_1">
+                        <img src="../../../img/clothes/343.jpg" alt=""/>
+                        <p class="p1">标志性 V 领针织衫</p>
+                        <p class="p3">¥648</p>
+                    </div>
+                    <div class="r1_2">
+                        <img src="../../../img/clothes/342343.jpg" alt=""/>
+                        <p class="p1">标志性 V 领针织衫</p>
+                        <p class="p3">¥648</p>
+                    </div>
+                    <div class="r1_3">
+                        <img src="../../../img/clothes/65645.jpg" alt=""/>
+                        <p class="p1">标志性 V 领针织衫</p>
+                        <p class="p3">¥648</p>
+                    </div>
+                </div>
+            </div>
+
+            <!--手机端-->
+            <div class="all1">
+                <!--这是推荐页 第一页-->
+                <div id="div1">
+                    <p style="font-weight: bold">推荐</p>
+                    <div class="d1" style="margin-left: 4%" ng-repeat="pro1 in page" id="{{pro1.p_id}}">
+                        <a href="#/detail"><img src="{{pro1.p_img_item1}}" alt=""/></a>
+                        <p><a href="#/detail">{{pro1.p_name}}</a></p>
+                        <p>{{pro1.p_descripe}}</p>
+                        <p style="font-weight: bold;color: black">{{pro1.p_price}}</p>
+                    </div>
+                </div>
+
+                <!--第二页-->
+                <div id="div2">
+                    <p style="font-weight: bold">外套</p>
+                    <div class="d1">
+                        <img src="../../../img/clothes/tuijian1-1m.jpg" alt=""/>
+                        <p class="p1">羊羔绒里衬尼龙派克大衣2</p>
+                        <p class="p3">¥2,140</p>
+                    </div>
+                    <div class="d2">
+                        <img src="../../../img/clothes/img15.jpg" alt=""/>
+                        <p class="p1">羊羔绒里衬尼龙派克大衣2</p>
+                        <p class="p3">¥2,140</p>
+                    </div>
+                    <div class="d1">
+                        <img src="../../../img/clothes/img19.jpg" alt=""/>
+                        <p class="p1">羊羔绒里衬尼龙派克大衣2</p>
+                        <p class="p3">¥2,140</p>
+                    </div>
+                </div>
+
+                <!--第三页-->
+                <div id="div3">
+                    <p style="font-weight: bold">针织衫</p>
+                    <div class="d1">
+                        <img src="../../../img/clothes/343.jpg" alt=""/>
+                        <p class="p1">标志性 V 领针织衫</p>
+                        <p class="p3">¥648</p>
+                    </div>
+                    <div class="d2">
+                        <img src="../../../img/clothes/342343.jpg" alt=""/>
+                        <p class="p1">标志性 V 领针织衫</p>
+                        <p class="p3">¥648</p>
+                    </div>
+                    <div class="d1">
+                        <img src="../../../img/clothes/65645.jpg" alt=""/>
+                        <p class="p1">标志性 V 领针织衫</p>
+                        <p class="p3">¥648</p>
+                    </div>
+                </div>
+
+
+
+            </div>
+
+
+        </div>
+    </div>
+    <div class="foot">
+        <div class="color"></div>
+        <div class="bottom">
+            <div class="bottom_container">
+                <div class="bottom_left">
+                    <input type="button" value="取得独享优惠的电子邮件"/>
+                    <p>成为获得关于独享优惠、最新 Lookbook 和最新潮流等信息的第一人。</p>
+                    <img src="../../../img/sites-abercrombie_cn-site_files/weibo.png" alt=""/>
+                    <p><a href="">查找门店</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="">沪ICP备14015436-1号
+                        <!--<img src="./img/Sites-abercrombie_cn-Site_files/anf-CN-govt-icon" alt=""/>-->
+                    </a></p>
+                </div>
+                <div class="bottom_right">
+                    <div class="d1">
+                        <ul>
+                            <li class="li1">帮助</li>
+                            <li>常见问题</li>
+                            <li>尺码表</li>
+                            <li>订单帮助</li>
+                            <li>在线订购</li>
+                            <li>运费和手续费</li>
+                            <li>退货和换货</li>
+                            <li>追踪我的订单</li>
+                        </ul>
+                    </div>
+
+                    <div class="d2">
+                        <ul>
+                            <li class="li1">隐私与条款</li>
+                            <li>隐私</li>
+                            <li>销售条款</li>
+                            <li>网站使用条例</li>
+                        </ul>
+                    </div>
+                    <div class="d3">
+                        <ul>
+                            <li class="li1">关于我们</li>
+                            <li>品牌保护</li>
+                            <li>职位招聘</li>
+                            <li>多样性</li>
+                            <li>投资者</li>
+                        </ul>
+                    </div>
+                    <div class="d4">
+                        <ul>
+                            <li class="li1">我们的品牌</li>
+                            <li>Abercrombie & Fitch</li>
+                            <li>Abercrombie Kids</li>
+                            <li>Hollister</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+<script src="../../slide.js"></script>
