@@ -87,6 +87,7 @@ gulp.task('webserver', function(){
 })
 gulp.task('watch', function() {
   gulp.watch(path.jade, ['jade-deploy'])
+  gulp.watch(path.jss, ['concatJs'])
   gulp.watch(path.index, ['index-deploy'])
   gulp.watch(path.stylesMain, ['sass-deploy'])
   gulp.watch(["dist/js/**/*.js","dist/styles/entry.css","dist/index.html"])
