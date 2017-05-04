@@ -1,0 +1,29 @@
+html{
+	height: 100%;
+}
+
+*{
+	margin: 0;
+	padding: 0;
+}
+.layout-column{
+	display: flex;
+	flex-direction: column;
+}
+.layout-row{
+	display: flex;
+	flex-direction: row;
+}
+.flex{
+	flex: 1;
+}
+
+.main-wrapper{
+	font-size: 3em;
+	p{
+		text-align: center;
+	}
+	height: 100%;
+	width: 100%;
+
+}

@@ -25,7 +25,11 @@ var path = {
 	jsLibs: [
 	    'bower_components/jquery/dist/jquery.js',
 	    'bower_components/angular/angular.js',
-	    'bower_components/lodash/dist/lodash.js'
+	    'bower_components/lodash/dist/lodash.js',
+	    'bower_components/angular-ui/build/angular-ui.min.js',
+	    'bower_components/angular-aria/angular-aria.js',
+	    'bower_components/angular-animate/angular-animate.js',
+	    'bower_components/angular-material/angular-material.js'
  	]
 }
 gulp.task('clean', function() {
@@ -89,7 +93,7 @@ gulp.task('watch', function() {
   gulp.watch(path.jade, ['jade-deploy'])
   gulp.watch(path.jss, ['concatJs'])
   gulp.watch(path.index, ['index-deploy'])
-  gulp.watch(path.stylesMain, ['sass-deploy'])
+  gulp.watch(["public/**/*.scss"], ['sass-deploy'])
   gulp.watch(["dist/js/**/*.js","dist/styles/entry.css","dist/index.html"])
     .on("change",livereload.changed)
 });
