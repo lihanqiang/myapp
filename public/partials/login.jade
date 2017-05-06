@@ -1,9 +1,9 @@
 div.layout-column.flex.login-bg-wrapper
 	span.flex
 	//- 登录div
-	div.login-wrapper.layout-column
+	div.login-wrapper.layout-column.animated.bounceInRight
 		form.layout-column.flex(name="loginForm")
-			h2.title 登 录
+			h2.title 登 入
 			div.layout-row
 				md-input-container.flex
 					label 邮 箱
@@ -17,8 +17,10 @@ div.layout-column.flex.login-bg-wrapper
 					input(type="password" minlength="6" maxlength="20" ng-pattern="/^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,20}$/" ng-model="logForm.password" name="password" required)
 					div(ng-messages="loginForm.password.$error" multiple md-auto-hide="false")
 						div(ng-message="required") 不能为空！
-						div(ng-message="pattern") 密码由不少于6位数字和字母构成！
 			div.layout-row.submit-div
-				md-button.md-raised.md-primary(type="submit" ng-disabled="loginForm.$invalid" ui-sref="home") 我填好了
+				span.flex
+				md-button.md-raised.md-primary(type="submit" ng-disabled="loginForm.$invalid" ui-sref="home") 登 入
+				span.go-to-reg.flex 还没来过，
+					span(ui-sref="reg") 点此注册
 	span.flex
 	

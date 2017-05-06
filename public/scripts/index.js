@@ -1,6 +1,6 @@
 ;(function() {
 
-	//deps‰∏∫‰æùËµñ
+	//depsŒ™“¿¿µ
 	var deps = [
 		'ui',
 		'ngMaterial',
@@ -14,6 +14,15 @@
 
 	app.config(function($stateProvider, $urlRouterProvider) {
 		
+
+		var regState = {
+			name: 'reg',
+			url: '/reg',
+			templateUrl: 'partials/reg.html',
+			controller: 'regController',
+			controllerAs: 'ctrl'
+		}
+
 		var loginState = {
 			name: 'login',
 			url: '/login',
@@ -33,6 +42,7 @@
 		$urlRouterProvider.when('', '/login').otherwise('/login');
 
 		$stateProvider.state(homeState);
+		$stateProvider.state(regState);
 		$stateProvider.state(loginState);
 	})
 

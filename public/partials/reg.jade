@@ -1,0 +1,43 @@
+div.layout-column.flex.login-bg-wrapper
+	span.flex
+	//- 注册div
+	div.login-wrapper.layout-column.animated.bounceInRight
+		form.layout-column.flex(name="regForm")
+			h2.title 注 册
+			div.layout-row
+				md-input-container.flex
+					md-icon(md-font-icon="icon-home")
+					label 邮 箱
+					input(type="email" ng-pattern="/^.+@.+\..+$/" ng-model="logForm.account" name="account" required)
+					div(ng-messages="regForm.account.$error" multiple md-auto-hide="false")
+						div(ng-message="required") 不能为空！
+						div(ng-message="pattern") 请输入正确的邮箱！
+			div.layout-row
+				md-input-container.flex
+					md-icon(md-font-icon="icon-home")
+						//- <i class="fa fa-address-card" aria-hidden="true"></i>
+						i.fa.fa-address-card(aria-hidden="true")
+					label 密 码
+					input(type="password" minlength="6" maxlength="20" ng-pattern="/^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,20}$/" ng-model="logForm.password" name="password" required)
+					div(ng-messages="regForm.password.$error" multiple md-auto-hide="false")
+						div(ng-message="required") 不能为空！
+						div(ng-message="pattern") 密码由不少于6位数字和字母构成！
+			div.layout-row
+				md-input-container.flex
+					div
+						md-icon(md-font-icon="icon-home")
+						span.gender-span 性 别
+					md-radio-group.layout-row(ng-model="regForm.gender" name="gender")
+						md-radio-button.flex(ng-repeat="gender in genderArr" ng-value="gender.name") {{gender.text}}
+			div.layout-row
+				md-input-container.flex
+					md-icon(md-font-icon="icon-home")
+					label 年 龄
+					input(type="number" name="age")
+			div.layout-row.submit-div
+				span.flex
+				md-button.md-raised.md-primary(type="submit" ng-disabled="regForm.$invalid" ui-sref="home") 我填好了
+				span.go-to-reg.flex 我来过了，
+					span(ui-sref="login") 我要登录
+	span.flex
+	

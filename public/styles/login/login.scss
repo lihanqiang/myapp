@@ -1,5 +1,4 @@
 .login-bg-wrapper{
-	font-family: 'Rubik', sans-serif;
 	background: url("../assets/images/login_bg.jpg") no-repeat;
     background-size: auto;
     background-position: 60% 60%;
@@ -13,15 +12,30 @@
 		margin: auto;
 		background: #fff;
 		.title{
+			color: rgb(63, 81, 181);
 			padding-bottom: 10px;
 			margin-bottom: 18px;
 			border-bottom: 1px solid rgba(0,0,0,0.12);
 			text-align: center;
 		}
+		// md-icon.icon-home:before{
+		// 	content: '\f2ba';
+		// }
+		.gender-span{
+			color: rgba(0,0,0,0.38);
+		}
 		.submit-div{
-			margin: 0 auto;
 			.md-button{
 				border-radius: 5px;
+			}
+			.go-to-reg{
+				color: rgb(63, 81, 181);
+				text-align: right;
+				line-height: 48px;
+				font-size: 12px;
+				span:hover{
+					text-decoration: underline;
+				}
 			}
 		}
 	}
