@@ -1,7 +1,7 @@
 div.layout-column.flex.login-bg-wrapper
 	span.flex
 	//- 注册div
-	div.login-wrapper.layout-column.animated.bounceInRight
+	div.login-wrapper.layout-column.animated.bounceInDown
 		form.layout-column.flex(name="regForm")
 			h2.title 注 册
 			div.layout-row
@@ -33,7 +33,7 @@ div.layout-column.flex.login-bg-wrapper
 				md-input-container.flex
 					md-icon(md-font-icon="icon-home")
 					label 年 龄
-					input(type="number" name="age")
+					input(type="number" max="99" min="1" name="age")
 			div.layout-row.submit-div
 				span.flex
 				md-button.md-raised.md-primary(type="submit" ng-disabled="regForm.$invalid" ui-sref="home") 我填好了
