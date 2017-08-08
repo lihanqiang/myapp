@@ -16,8 +16,8 @@ function getConAPI(){
     var con = mysql.createConnection({
         host:'127.0.0.1',
         user:'root',
-        password:'1234',
-        database:'f21-lihanqiang'
+        password:'root',
+        database:'test'
     });
 
     return con;

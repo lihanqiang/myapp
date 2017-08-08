@@ -36,3 +36,10 @@ exports.login = function (email, pwd, func) {
         func(r);
     })
 };
+
+//testUser
+exports.testUser = function (func) {
+    userDAO.findTestAll(function(r){
+        func(r);
+    })
+};

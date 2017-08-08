@@ -23,6 +23,9 @@ app.use(session({
 
 }));
 
+app.engine('html', require('ejs').renderFile);
+app.set('view engine', 'html');
+
 app.use('/users', userRoute);
 app.use('/product', productRoute);
 app.use('/message', messageRoute);

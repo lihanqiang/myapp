@@ -51,4 +51,10 @@ router.get("/getSession",function(req,res){
     res.json(req.session.users);
 });
 
+router.get("/testUser", function(req, res) {
+    userService.testUser(function(allUsers) {
+        res.send(allUsers);
+    })
+})
+
 module.exports = router;

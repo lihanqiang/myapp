@@ -29,3 +29,10 @@ exports.findByNameAndPwd = function (email, pwd, func) {//name和pwd 是service�
 exports.saveSession = function(func){
 
 }
+
+//测试
+exports.findTestAll = function(func) {
+    db.query("select * from user_table", function(r){
+        func(r);
+    });
+}
