@@ -12,7 +12,7 @@
 
 	this.nb = app;
 
-	app.config(function($stateProvider, $urlRouterProvider) {
+	app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
 		
 
 		var regState = {
@@ -44,6 +44,8 @@
 		$stateProvider.state(homeState);
 		$stateProvider.state(regState);
 		$stateProvider.state(loginState);
+
+		$locationProvider.html5Mode(true);
 	})
 
 
