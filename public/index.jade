@@ -7,9 +7,9 @@ html.layout-column
 		meta(name="apple-mobile-web-app-capable" content="yes")
 		meta(name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimal-ui")
 		link(rel="stylesheet" href="styles/entry.css")
-	body.layout-column.flex(ng-app="myApp" ng-cloak)
-		div.layout-column.flex.main-wrapper
-			ui-view.layout-column.flex
+	body(ng-app="myApp" ng-cloak)
+		div.main-wrapper
+			ui-view
 			
 	script(src="scripts/libs.js")
 	script(src="scripts/main.js")

@@ -1,7 +1,18 @@
-div.home-wrapper.layout-column
-	//- div.layout-column.flex.home-wrapper-inner.animated(ng-class="{true: 'fadeOut'}[isFade]" ng-show="!isFade")
-	//- 	span.flex
-	//- 	span.center-words ——MY&nbsp;&nbsp;&nbsp;&nbsp;LOVE——
-	//- 	span.flex
-	div.real-home-wrapper-inner
-		home-fall(data="")
+//- 主页头部
+div.all-wrapper
+	div.home-header-wrapper
+		div.home-header
+			div.home-left-header-ico(title="sb")
+			div.home-right-header-nav
+				div.nav-wrapper
+					div.nav-inner(ng-repeat="json in navJson track by $index" ng-click="ctrl.changePosition($index)" ng-class="{true: 'selected'}[thisIndex==$index]") {{json.name}}
+					div.bottom-slider(ng-class="{'go-first': isFirst, 'go-middle': isMiddle, 'go-last': isLast}")
+	div.content-wrapper
+		div.content-wrapper-inner
+			div.inner-content-inners(ng-repeat="img in imagesJson track by $index")
+				div.over-play
+				div.img-wrapper(ng-style="{'background-image': 'url({{img.src}})'}")
+				p {{img.desc}}
+				div.a-wrapper
+					a(href="{{img.src}}" download="{{img.src}}")
+						i.icon-cloud-download

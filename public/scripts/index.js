@@ -13,23 +13,6 @@
 	this.nb = app;
 
 	app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
-		
-
-		var regState = {
-			name: 'reg',
-			url: '/reg',
-			templateUrl: 'partials/reg.html',
-			controller: 'regController',
-			controllerAs: 'ctrl'
-		}
-
-		var loginState = {
-			name: 'login',
-			url: '/login',
-			templateUrl: 'partials/login.html',
-			controller: 'loginController',
-			controllerAs: 'ctrl'
-		}
 
 		var homeState = {
 			name: 'home',
@@ -39,13 +22,11 @@
 			controllerAs: 'ctrl'
 		};
 
-		$urlRouterProvider.when('', '/login').otherwise('/login');
+		$urlRouterProvider.when('', '/home').otherwise('/home');
 
 		$stateProvider.state(homeState);
-		$stateProvider.state(regState);
-		$stateProvider.state(loginState);
 
-		$locationProvider.html5Mode(true);
+		// $locationProvider.html5Mode(true);
 	})
 
 
